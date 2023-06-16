@@ -77,13 +77,21 @@ const idInvalidCardCompanies = array => {
   let companies = [];
   for (let i = 0; i < array.length; i++) { 
     if (array[i][0] === 3) {
-      companies.push('Amex');
+      if (companies.indexOf('Amex') === -1) {
+        companies.push('Amex');
+      }
     } else if (array[i][0] === 4) {
-      companies.push('Visa');
-    } else if (array[i][0] === 5) {
-      companies.push('Mastercard');
+      if (companies.indexOf('Visa') === -1) {
+        companies.push('Visa');
+      }
+    } else if (array[i][0] === 5) { 
+      if (companies.indexOf('Mastercard') === -1) {
+        companies.push('Mastercard');
+      }
     } else if (array[i][0] === 6) {
-      companies.push('Discover');
+      if (companies.indexOf('Discover') === -1) {
+        companies.push('Discover');
+      }
     } else {
       console.log('Company not found');
     }
@@ -99,5 +107,3 @@ const idInvalidCardCompanies = array => {
 //console.log(idInvalidCardCompanies([invalid2])); // Should print ['mastercard']
 
 //console.log(idInvalidCardCompanies(batch)); // Find out which companies have invalid cards
-
-//Don't forget to test the mystery cards, they might be a scam!
